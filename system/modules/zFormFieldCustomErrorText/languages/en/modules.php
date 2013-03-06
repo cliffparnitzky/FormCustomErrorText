@@ -30,6 +30,6 @@
 /**
  * Module description
  */
-$GLOBALS['TL_LANG']['MOD']['zFormFieldCustomErrorText'] = 'Provides access protection (known from modules and content elements) for form fields.';
+$GLOBALS['TL_LANG']['MOD']['zFormFieldCustomErrorText'] = array('Custom form field error text', 'Provides the possibility to define custom error texts for form fields.');
 
 ?>

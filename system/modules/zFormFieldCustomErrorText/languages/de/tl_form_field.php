@@ -30,13 +30,15 @@
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_form_field']['protected_legend'] = 'Zugriffsschutz';
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorText_legend'] = 'Benutzerdefinierte Fehlertexte';
  
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_form_field']['protected'] = array('Formularfeld schützen', 'Das Formularfeld nur bestimmten Mitgliedergruppen anzeigen.');
-$GLOBALS['TL_LANG']['tl_form_field']['groups']    = array('Erlaubte Mitgliedergruppen', 'Diese Mitgliedergruppen können das Formularfeld sehen.');
-$GLOBALS['TL_LANG']['tl_form_field']['guests']    = array('Nur Gästen anzeigen', 'Das Formularfeld verstecken sobald ein Mitglied angemeldet ist.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextActive']        = array('Benutzerdefinierte Fehlertexte aktivieren', 'Wählen Sie, ob für dieses Formularfeld benutzerdefinierte Fehlertexte festgelegt werden sollen.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextCss']           = array('Fehlertext-CSS-ID/Klasse', 'Hier können Sie eine ID und beliebig viele Klassen für den Fehlertext eingeben. Dieser wird dann automatisch als <i>&lt;span&gt;</i>-Element ausgegeben.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValues']        = array('Fehlertexte', 'Legen Sie die Fehlertext für verschiedene Sprachen fest. Der erste Eintrag in der Tabelle wird als Standardwert verwendet, wenn zu einer Sprache kein Text definiert ist.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueLanguage'] = array('Sprache', 'Wählen Sie die Sprache des Fehlertexts.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueContent']  = array('Text', 'Legen Sie den Text fest, der ausgegeben werden soll.');
 
 ?>

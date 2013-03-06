@@ -30,6 +30,6 @@
 /**
  * Module description
  */
-$GLOBALS['TL_LANG']['MOD']['zFormFieldCustomErrorText'] = 'Stellt den Zugriffsschutz (bekannt aus Modulen und Inhaltselementen) für Formularfelder zur Verfügung.';
+$GLOBALS['TL_LANG']['MOD']['zFormFieldCustomErrorText'] = array('Benutzerdefinierte Formularfeld-Fehlertexte', 'Stellt die Möglichkeit zur Verfügung, benutzerdefinierte Fehlertexte für Formularfelder zu definieren.');
 
 ?>

@@ -30,39 +30,61 @@
 /**
  * Add a palette to tl_form_field
  */
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['__selector__'][] = 'protected';
-$GLOBALS['TL_DCA']['tl_form_field']['subpalettes']['protected'] = 'groups';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['__selector__'][] = 'customErrorTextActive';
+$GLOBALS['TL_DCA']['tl_form_field']['subpalettes']['customErrorTextActive'] = 'customErrorTextCss,customErrorTextValues';
 
 foreach ($GLOBALS['TL_DCA']['tl_form_field']['palettes'] as $name=>$palette) {
-	$GLOBALS['TL_DCA']['tl_form_field']['palettes'][$name] = str_replace("{expert_legend:hide}", "{protected_legend:hide},protected;{expert_legend:hide},guests", $palette);
+	$GLOBALS['TL_DCA']['tl_form_field']['palettes'][$name] = str_replace("{expert_legend:hide}", "{customErrorText_legend:hide},customErrorTextActive;{expert_legend:hide}", $palette);
 }
 
 /**
  * Add fields to tl_form_field
  */
 
-$GLOBALS['TL_DCA']['tl_form_field']['fields']['protected'] = array
+$GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextActive'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['protected'],
+	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextActive'],
 	'exclude'                 => true,
 	'filter'                  => true,
 	'inputType'               => 'checkbox',
 	'eval'                    => array('submitOnChange'=>true)
 );
-$GLOBALS['TL_DCA']['tl_form_field']['fields']['groups'] = array
+$GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextCss'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['groups'],
+	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextCss'],
 	'exclude'                 => true,
-	'inputType'               => 'checkbox',
-	'foreignKey'              => 'tl_member_group.name',
-	'eval'                    => array('mandatory'=>true, 'multiple'=>true)
+	'inputType'               => 'text',
+	'eval'                    => array('multiple'=>true, 'size'=>2, 'tl_class'=>'w50')
 );
-$GLOBALS['TL_DCA']['tl_form_field']['fields']['guests'] = array
+$GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextValues'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['guests'],
-	'exclude'                 => true,
-	'filter'                  => true,
-	'inputType'               => 'checkbox'
-);
+	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValues'],
+	'inputType'               => 'multiColumnWizard',
+	'eval'                    => array
+	(
+		'mandatory'    => false,
+		'style'        => 'min-width: 100%;',
+		'tl_class'     =>'clr',
+		'minCount'     => 1,
+		'columnFields' => array
+		(
+			'customErrorTextValueLanguage' => array
+			(
+				'label'            => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueLanguage'],
+				'exclude'          => true,
+				'inputType'        => 'select',
+				'options'          => $this->getLanguages(),
+				'eval'             => array('style'=>'width: 95%;', 'includeBlankOption'=>true, 'mandatory'=>true)
+			),
+			'customErrorTextValueContent' => array
+			(
+				'label'            => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueContent'],
+				'exclude'          => true,
+				'inputType'        => 'text',
+				'eval'             => array('style'=>'width: 95%;', 'mandatory'=>true)
+			)
+		)
+	)
+); 
 
 ?>

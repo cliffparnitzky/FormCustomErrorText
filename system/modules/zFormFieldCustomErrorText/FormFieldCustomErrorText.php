@@ -41,22 +41,76 @@ class FormFieldCustomErrorText extends Controller {
 	 * Set custom error text if validation failed and text is configured.
 	 */
 	public function setCustomErrorText (Widget $objWidget, $intId) {
-		if ($objWidget->hasErrors()) {
-			// cache errors
-			$arrErrors = $objWidget->getErrors();
+		if ($objWidget->hasErrors() && $objWidget->customErrorTextActive) {
+			// get the error text
+			global $objPage;
+			$customErrorText = "";
+			$arrTexts = deserialize($objWidget->customErrorTextValues);
+			if (is_array($arrTexts) && count($arrTexts) > 0)
+			{
+				foreach ($arrTexts as $textValue)
+				{
+					if ($textValue['customErrorTextValueLanguage'] == $objPage->language)
+					{
+						$customErrorText = $textValue['customErrorTextValueContent'];
+					}
+				}
+				if (strlen($customErrorText) == 0)
+				{
+					// use first entry as fallback
+					$customErrorText = $arrTexts[0]['customErrorTextValueContent'];
+				}
+			}
 			
-			// clear error array (change access to property via reflection)
-			$rp = new ReflectionProperty($objWidget,'arrErrors');
-			$rp->setAccessible(true);
-			$rp->setValue($objWidget, array());
-			$rp->setAccessible(false);
-			
-			// set custom error
-			$objWidget->addError("test");
-			
-			// append cached errors to property (only for completeness)
-			foreach ($arrErrors as $error) {
-				$objWidget->addError($error);
+			if (strlen($customErrorText) > 0)
+			{
+				// cache errors
+				$arrErrors = $objWidget->getErrors();
+				
+				// clear error array (change access to property via reflection)
+				$rp = new ReflectionProperty($objWidget,'arrErrors');
+				$rp->setAccessible(true);
+				$rp->setValue($objWidget, array());
+				$rp->setAccessible(false);
+				
+				$strErrorText = "";
+				// get CSS id and class ... if both are empty, insert error text directly, otherwise surround with <span>
+				$arrCss = deserialize($objWidget->customErrorTextCss);
+				if (is_array($arrCss) && count($arrCss) == 2 && (strlen($arrCss[0]) > 0 || strlen($arrCss[1]) > 0))
+				{
+					$strErrorText .= "<span";
+					// add id if set
+					if (strlen($arrCss[0]) > 0)
+					{
+						$strErrorText .= " id=\"" . $arrCss[0] . "\"";
+					}
+					// add class if set
+					if (strlen($arrCss[1]) > 0)
+					{
+						$strErrorText .= " class=\"" . $arrCss[1] . "\"";
+					}
+					$strErrorText .= ">";
+				}
+				
+				// set the custom text
+				$strErrorText .= $customErrorText;
+				
+				// close surrounding <span>
+				if (is_array($arrCss) && count($arrCss) == 2 && (strlen($arrCss[0]) > 0 || strlen($arrCss[1]) > 0))
+				{
+					$strErrorText .= "</span>";
+				}
+				
+				$objWidget->addError($strErrorText);
+				
+				// append cached errors to property (only for completeness)
+				foreach ($arrErrors as $error) {
+					$objWidget->addError($error);
+				}
+			}
+			else
+			{
+				$this->log('Could not determine custom form field error text, despite this option is active for field with id: ' . $objWidget->id, 'FormFieldCustomErrorText->setCustomErrorText(...)', TL_ERROR); 
 			}
 		}
 		return $objWidget;

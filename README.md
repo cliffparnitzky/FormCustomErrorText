@@ -1,9 +1,7 @@
 Contao Extension: FormFieldCustomErrorText
 ==========================================
 
-Offers the possibility to define custom error messages for each form field.
-
-**!!! PROOF OF CONCEPT !!!**
+Offers the possibility to define custom error texts for each form field.
 
 
 Installation
@@ -23,10 +21,10 @@ Compatibility
 -------------
 
 - min. version: Contao 2.9.5
-- max. version: Contao 2.11.x
+- max. version: Contao 3.0.x
 
 
 Dependency
 ----------
 
-- There are no dependencies to other extensions, that have to be installed.
+- This extension is dependent on the following extensions: [[MultiColumnWizard]](https://contao.org/en/extension-list/view/MultiColumnWizard.html)

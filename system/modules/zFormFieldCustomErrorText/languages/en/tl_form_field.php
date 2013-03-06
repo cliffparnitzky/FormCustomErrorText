@@ -30,13 +30,15 @@
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_form_field']['protected_legend'] = 'Access protection';
-
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorText_legend'] = 'Custom error texts';
+ 
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_form_field']['protected'] = array('Protect form field', 'Show the form field to certain member groups only.');
-$GLOBALS['TL_LANG']['tl_form_field']['groups']    = array('Allowed member groups', 'These member groups will be able to see the form field.');
-$GLOBALS['TL_LANG']['tl_form_field']['guests']    = array('Show to guests only', 'Hide the form field if a member is logged in.'); 
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextActive']        = array('Activate Custom error texts', 'Select if custom error texts should be defined for this form field.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextCss']           = array('Error texts CSS ID/class', 'Here you can set an ID and one or more classes for the error text. In output, it will automatically be surrounded by <i>&lt;span&gt;</i> element.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValues']        = array('Error texts', 'Set the error text for different languages. The first entry in the table will be used as default value if no text for a language is defined.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueLanguage'] = array('Language', 'Select the language of the error text.');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueContent']  = array('Text', 'Set the text to be displayed.');
 
 ?>

@@ -12,7 +12,7 @@
 -- 
 
 CREATE TABLE `tl_form_field` (
-  `protected` char(1) NOT NULL default '',
-  `groups` blob NULL,
-  `guests` char(1) NOT NULL default '',
+  `customErrorTextActive` char(1) NOT NULL default '',
+  `customErrorTextCss` varchar(255) NOT NULL default '',
+  `customErrorTextValues` blob NULL,
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
