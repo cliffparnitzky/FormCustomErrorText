@@ -28,3 +28,9 @@ Dependency
 ----------
 
 - This extension is dependent on the following extensions: [[MultiColumnWizard]](https://contao.org/en/extension-list/view/MultiColumnWizard.html)
+
+
+Screenshot
+----------
+
+![Screenshot](https://raw.github.com/cliffparnitzky/FormFieldCustomErrorText/master/screenshot.jpg)
