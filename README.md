@@ -30,6 +30,16 @@ Dependency
 - This extension is dependent on the following extensions: [[MultiColumnWizard]](https://contao.org/en/extension-list/view/MultiColumnWizard.html)
 
 
+Insert tags
+-----------
+
+The following inserttags could be used:
+
+~~~~
+{{field::*}} ... This tag returns all values of the current field (replace * with any attribute of the field, for example label or maxlength).
+~~~~
+
+
 Screenshot
 ----------
 
