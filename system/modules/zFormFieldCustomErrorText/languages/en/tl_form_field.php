@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
+ * Copyright (C) 2005-2013 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -40,5 +40,11 @@ $GLOBALS['TL_LANG']['tl_form_field']['customErrorTextCss']           = array('Er
 $GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValues']        = array('Error texts', 'Set the error text for different languages. The first entry in the table will be used as default value if no text for a language is defined.');
 $GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueLanguage'] = array('Language', 'Select the language of the error text.');
 $GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueContent']  = array('Text', 'Set the text to be displayed.');
+
+/**
+ * Help
+ */
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorText']['help']['inserttags']['headline'] = array('<u>Inserttags</u>', 'The following inserttags could be used:');
+$GLOBALS['TL_LANG']['tl_form_field']['customErrorText']['help']['inserttags']['field']    = array('<i>{{field::*}}</i>', 'This tag returns all values of the current field (replace * with any attribute of the field, for example <i>label</i> or <i>maxlength</i>).');
 
 ?>

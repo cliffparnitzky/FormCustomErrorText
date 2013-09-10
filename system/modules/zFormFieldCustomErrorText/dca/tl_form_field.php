@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
+ * Copyright (C) 2005-2013 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -60,12 +60,14 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextValues'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValues'],
 	'inputType'               => 'multiColumnWizard',
+	'reference'               => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorText']['help']['inserttags'],
 	'eval'                    => array
 	(
 		'mandatory'    => false,
 		'style'        => 'min-width: 100%;',
 		'tl_class'     =>'clr',
 		'minCount'     => 1,
+		'helpwizard'   => true,
 		'columnFields' => array
 		(
 			'customErrorTextValueLanguage' => array

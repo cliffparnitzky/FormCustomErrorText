@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
+ * Copyright (C) 2005-2013 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -93,7 +93,8 @@ class FormFieldCustomErrorText extends Controller {
 				}
 				
 				// set the custom text
-				$strErrorText .= $customErrorText;
+				$strErrorText .= $this->replaceSpecialInsertTags($customErrorText, $objWidget);
+				echo $strErrorText;
 				
 				// close surrounding <span>
 				if (is_array($arrCss) && count($arrCss) == 2 && (strlen($arrCss[0]) > 0 || strlen($arrCss[1]) > 0))
@@ -114,6 +115,28 @@ class FormFieldCustomErrorText extends Controller {
 			}
 		}
 		return $objWidget;
+	}
+	
+	/**
+	 * Replaces the insert tags.
+	 */
+	private function replaceSpecialInsertTags($text, $field)
+	{
+		$textArray = preg_split('/\{\{([^\}]+)\}\}/', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
+		
+		for ($count = 0; $count < count($textArray); $count++)
+		{
+			$parts = explode("::", $textArray[$count]);
+			if ($parts[0] == "field")
+			{
+				$value = $field->$parts[1];
+				if ($value != null)
+				{
+					$textArray[$count] = $value;
+				}
+			}
+		}
+		return implode('', $textArray);
 	}
 }
 
