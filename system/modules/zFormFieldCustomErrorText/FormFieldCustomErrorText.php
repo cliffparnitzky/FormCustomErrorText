@@ -50,7 +50,8 @@ class FormFieldCustomErrorText extends Controller {
 			{
 				foreach ($arrTexts as $textValue)
 				{
-					if ($textValue['customErrorTextValueLanguage'] == $objPage->language)
+					$pageLanguage = $strLanguage = str_replace('-', '_', $objPage->language);
+					if (strlen($customErrorText) == 0 && $textValue['customErrorTextValueLanguage'] == $pageLanguage)
 					{
 						$customErrorText = $textValue['customErrorTextValueContent'];
 					}
@@ -76,7 +77,8 @@ class FormFieldCustomErrorText extends Controller {
 				$strErrorText = "";
 				// get CSS id and class ... if both are empty, insert error text directly, otherwise surround with <span>
 				$arrCss = deserialize($objWidget->customErrorTextCss);
-				if (is_array($arrCss) && count($arrCss) == 2 && (strlen($arrCss[0]) > 0 || strlen($arrCss[1]) > 0))
+				$hasCssIdOrClass = (is_array($arrCss) && count($arrCss) == 2 && (strlen($arrCss[0]) > 0 || strlen($arrCss[1]) > 0));
+				if ($hasCssIdOrClass)
 				{
 					$strErrorText .= "<span";
 					// add id if set
@@ -94,10 +96,9 @@ class FormFieldCustomErrorText extends Controller {
 				
 				// set the custom text
 				$strErrorText .= $this->replaceSpecialInsertTags($customErrorText, $objWidget);
-				echo $strErrorText;
 				
 				// close surrounding <span>
-				if (is_array($arrCss) && count($arrCss) == 2 && (strlen($arrCss[0]) > 0 || strlen($arrCss[1]) > 0))
+				if ($hasCssIdOrClass)
 				{
 					$strErrorText .= "</span>";
 				}

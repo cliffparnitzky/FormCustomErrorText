@@ -76,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextValues'] = array
 				'exclude'          => true,
 				'inputType'        => 'select',
 				'options'          => $this->getLanguages(),
-				'eval'             => array('style'=>'width: 95%;', 'includeBlankOption'=>true, 'mandatory'=>true)
+				'eval'             => array('style'=>'width: 200px;', 'includeBlankOption'=>true, 'mandatory'=>true)
 			),
 			'customErrorTextValueContent' => array
 			(
