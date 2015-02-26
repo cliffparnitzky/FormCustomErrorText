@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,9 +21,9 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
- * @package    FormFieldCustomErrorText
+ * @package    FormCustomErrorText
  * @license    LGPL
  */
  
@@ -47,14 +47,16 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextActive'] = array
 	'exclude'                 => true,
 	'filter'                  => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true)
+	'eval'                    => array('submitOnChange'=>true),
+	'sql'                     => "char(1) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextCss'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextCss'],
 	'exclude'                 => true,
 	'inputType'               => 'text',
-	'eval'                    => array('multiple'=>true, 'size'=>2, 'tl_class'=>'w50')
+	'eval'                    => array('multiple'=>true, 'size'=>2, 'tl_class'=>'w50'),
+	'sql'                     => "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextValues'] = array
 (
@@ -76,17 +78,18 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['customErrorTextValues'] = array
 				'exclude'          => true,
 				'inputType'        => 'select',
 				'options'          => $this->getLanguages(),
-				'eval'             => array('style'=>'width: 200px;', 'includeBlankOption'=>true, 'mandatory'=>true)
+				'eval'             => array('style'=>'width: 150px;', 'includeBlankOption'=>true, 'mandatory'=>true)
 			),
 			'customErrorTextValueContent' => array
 			(
 				'label'            => &$GLOBALS['TL_LANG']['tl_form_field']['customErrorTextValueContent'],
 				'exclude'          => true,
 				'inputType'        => 'text',
-				'eval'             => array('style'=>'width: 95%;', 'mandatory'=>true)
+				'eval'             => array('style'=>'width: 500px;', 'mandatory'=>true)
 			)
 		)
-	)
+	),
+	'sql'                     => "blob NULL"
 ); 
 
 ?>

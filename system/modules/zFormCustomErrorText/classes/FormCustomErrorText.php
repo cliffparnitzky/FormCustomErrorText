@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,21 +21,21 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
- * @package    FormFieldCustomErrorText
+ * @package    FormCustomErrorText
  * @license    LGPL
  */
 
 /**
- * Class FormFieldCustomErrorText
+ * Class FormCustomErrorText
  *
  * Provide methods to set custom error text
  * @copyright  Cliff Parnitzky 2013
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class FormFieldCustomErrorText extends Controller {
+class FormCustomErrorText extends Controller {
 	
 	/**
 	 * Set custom error text if validation failed and text is configured.
@@ -112,7 +112,7 @@ class FormFieldCustomErrorText extends Controller {
 			}
 			else
 			{
-				$this->log('Could not determine custom form field error text, despite this option is active for field with id: ' . $objWidget->id, 'FormFieldCustomErrorText->setCustomErrorText(...)', TL_ERROR); 
+				$this->log('Could not determine custom form field error text, despite this option is active for field with id: ' . $objWidget->id, 'FormCustomErrorText->setCustomErrorText(...)', TL_ERROR); 
 			}
 		}
 		return $objWidget;
