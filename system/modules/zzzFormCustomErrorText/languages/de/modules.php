@@ -30,6 +30,6 @@
 /**
  * Module description
  */
-$GLOBALS['TL_LANG']['MOD']['zFormCustomErrorText'] = array('Benutzerdefinierte Formularfeld-Fehlertexte', 'Stellt die Möglichkeit zur Verfügung, benutzerdefinierte Fehlertexte für Formularfelder zu definieren.');
+$GLOBALS['TL_LANG']['MOD']['zzzFormCustomErrorText'] = array('Benutzerdefinierte Formularfeld-Fehlertexte', 'Stellt die Möglichkeit zur Verfügung, benutzerdefinierte Fehlertexte für Formularfelder zu definieren.');
 
 ?>

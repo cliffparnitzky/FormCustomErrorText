@@ -17,5 +17,5 @@
 ClassLoader::addClasses(array
 (
 	// Classes
-	'FormCustomErrorText' => 'system/modules/zFormCustomErrorText/classes/FormCustomErrorText.php',
+	'FormCustomErrorText' => 'system/modules/zzzFormCustomErrorText/classes/FormCustomErrorText.php',
 ));

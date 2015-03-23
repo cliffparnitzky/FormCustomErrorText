@@ -30,6 +30,6 @@
 /**
  * Module description
  */
-$GLOBALS['TL_LANG']['MOD']['zFormCustomErrorText'] = array('Custom form field error text', 'Provides the possibility to define custom error texts for form fields.');
+$GLOBALS['TL_LANG']['MOD']['zzzFormCustomErrorText'] = array('Custom form field error text', 'Provides the possibility to define custom error texts for form fields.');
 
 ?>
