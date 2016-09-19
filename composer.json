@@ -31,7 +31,7 @@
 	"extra":{
 		"contao":{
 			"sources":{
-				"system/modules/zFormCustomErrorText":"system/modules/zFormCustomErrorText"
+				"system/modules/zzzFormCustomErrorText":"system/modules/zzzFormCustomErrorText"
 			}
 		},
 		"branch-alias": {
